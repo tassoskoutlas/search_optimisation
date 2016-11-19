@@ -1,0 +1,26 @@
+# Ignore configuration files that may contain sensitive information.
+sites/*/settings*.php
+
+# Ignore paths that contain user-generated content.
+sites/*/files
+sites/*/private
+sites/default
+sites/all/modules/contrib
+sites/all/libraries
+sites/all/themes
+
+# Ignore all Drupal files
+
+*.txt
+*.php
+*.config
+.htaccess
+.editorconfig
+
+includes
+misc
+profiles
+scripts
+modules
+themes
+
