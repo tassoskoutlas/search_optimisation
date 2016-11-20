@@ -22,6 +22,9 @@ function search_optimisation_search_box_form_submit($form, &$form_state) {
   $form_id = $form['form_id']['#value'];
   $keys = trim($form_state['values'][$form_id]);
 
+  // Reset POST data.
+  $_POST['form_id'] = '';
+
   // Execute the menu handler directly.
   $path = 'search/node/' . $keys;
   menu_execute_active_handler($path, 'true');
