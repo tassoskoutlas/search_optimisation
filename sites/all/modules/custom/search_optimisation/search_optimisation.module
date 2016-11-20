@@ -13,8 +13,9 @@ function search_optimisation_form_search_block_form_alter(&$form, &$form_state, 
 }
 
 /**
- * Process a block search form submission without an additional GET
- * request.
+ * Process a block search form submission.
+ *
+ * This behavirou is without an additional GET request.
  */
 function search_optimisation_search_box_form_submit($form, &$form_state) {
   // Get user generated date from form.
