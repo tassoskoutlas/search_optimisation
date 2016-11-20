@@ -1,8 +1,6 @@
 # Search optimisation module
 
-This module executes directly from the POST request at search_form_block without
-the need of an additional GET request. It assumes there is just node search on
-the site.
+This module executes directly from the POST request at search_form_block without the need of an additional GET request. It assumes there is just node search on the site.
 
 ## Prerequisites
 
@@ -46,32 +44,46 @@ database server.
 Execute the make file:
 
 ```
-drush make drupal.make webroot -y
+drush make drupal.make -y
 ```
 
 Install Drupal standard profile:
 
 ```
-cd webroot && si standard -y
+drush si standard -y
 ```
 
 Enable all required modules:
 
 ```
-drush en master -y
-drush master-execute --scope=base -y
+drush en master -y && drush master-execute --scope=base -y
 ```
 
-## Coding standards and unit tests
+## Usage
 
-The code follows Drupal coding standards. Withing the module there is a
-composer.json file that contains PHP_Codesniffer and Drupal coder
-definitions.
+You can login to Drupal normally and use the search block on the sidebar. 
+
+With the search_optimisation module enabled when you search through the block just one request is produced, similar to the following:
+
+```
+"POST /search_optimisation/node HTTP/1.1" 200 4919
+```
+
+This is in contrast of the default behaviour where a POST request is followed by a GET, similar to the following:
+
+```
+"POST /search_optimisation/ HTTP/1.1" 302 454
+"GET /search_optimisation/search/node/cats%20OR%20dogs HTTP/1.1" 200 5047
+```
+
+## Coding standards
+
+The code follows Drupal coding standards. Withing the module there is a composer.json file that contains PHP_Codesniffer and Drupal coder definitions.
 
 Install extensions:
 
 ```
-cd webroot/sites/all/modules/custom/search_optimisation && composer install
+cd sites/all/modules/custom/search_optimisation/ && composer install
 ```
 
 Install Drupal coding standards
