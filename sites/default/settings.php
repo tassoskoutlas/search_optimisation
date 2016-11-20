@@ -633,3 +633,28 @@ if (file_exists(__DIR__ . '/settings.local.php')) {
   include __DIR__ . '/settings.local.php';
 }
 
+/**
+ * Master configuration.
+ */
+$conf['install_profile'] = 'standard';
+$conf['master_version'] = 2;
+$conf['master_modules'] = array (
+  'base' =>
+  array (
+    'standard',
+    'search_optimisation',
+    'update',
+  ),
+);
+
+$conf['master_uninstall_blacklist'] = array (
+  'base' =>
+  array (
+  ),
+);
+
+$conf['master_removable_blacklist'] = array (
+  0 => 'modules/*',
+);
+
+$conf['master_allow_base_scope'] = TRUE;
