@@ -46,13 +46,13 @@ database server.
 Execute the make file:
 
 ```
-drush make drupal.make -y
+drush make drupal.make webroot -y
 ```
 
 Install Drupal standard profile:
 
 ```
-drush si standard -y
+cd webroot && si standard -y
 ```
 
 Enable all required modules:
@@ -71,7 +71,7 @@ definitions.
 Install extensions:
 
 ```
-cd sites/all/modules/custom/search_optimisation && composer install
+cd webroot/sites/all/modules/custom/search_optimisation && composer install
 ```
 
 Install Drupal coding standards
