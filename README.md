@@ -6,7 +6,7 @@ This module executes directly from the POST request at search_form_block without
 
 You will need `composer`, `drush` and `git` installed to the system.
 
-## Usage
+## Set up
 
 Checkout repository:
 
