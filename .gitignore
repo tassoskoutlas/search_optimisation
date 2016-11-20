@@ -1,8 +1,14 @@
+# Exclude IDE specific paths
+.project
+.buildpath
+.settings
+
 # Ignore paths that contain user-generated content.
 sites/*/files
 sites/*/private
 
 sites/all/modules/contrib
+!sites/all/modules/custom
 sites/all/libraries
 sites/all/themes
 
@@ -18,10 +24,10 @@ sites/default/*.settings.php
 *.php
 
 # Ignore all Drupal directories
-includes
-misc
-profiles
-scripts
-modules
-themes
+includes/*
+misc/*
+profiles/*
+scripts/*
+modules/*
+themes/*
 
