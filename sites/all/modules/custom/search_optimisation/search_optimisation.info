@@ -1,0 +1,5 @@
+name = Search optimisation module.
+description = Provides a search optimisation function to avoid redirects on default search block.
+core = 7.x
+dependencies[] = drupal:search
+dependencies[] = drupal:system (>= 7.40)

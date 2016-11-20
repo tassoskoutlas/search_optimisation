@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Removes redirect from default search block.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function search_optimisation_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+  $form['#submit'][0] = 'search_optimisation_search_box_form_submit';
+}
+
+/**
+ * Process a block search form submission without an additional GET
+ * request.
+ */
+function search_optimisation_search_box_form_submit($form, &$form_state) {
+  // Get user generated date from form.
+  $form_id = $form['form_id']['#value'];
+  $keys = trim($form_state['values'][$form_id]);
+
+  // Execute the menu handler directly.
+  $path = 'search/node/' . $keys;
+  menu_execute_active_handler($path, 'true');
+}
